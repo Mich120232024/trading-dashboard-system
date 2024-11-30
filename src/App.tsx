@@ -6,7 +6,9 @@ import "./App.css";
 const App: React.FC = () => {
   return (
     <Router>
-      <MainLayout />
+      <div className="bg-primary-dark min-h-screen">
+        <MainLayout />
+      </div>
     </Router>
   );
 };
