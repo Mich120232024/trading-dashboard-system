@@ -2,7 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { FilterProvider } from "./context/FilterContext";
 import App from "./App";
 import "./index.css";
@@ -18,9 +18,9 @@ interface ImportMeta {
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <FilterProvider>
-      <Router>
+      <BrowserRouter>
         <App />
-      </Router>
+      </BrowserRouter>
     </FilterProvider>
   </React.StrictMode>
 );
