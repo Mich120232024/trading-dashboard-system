@@ -10,9 +10,15 @@ const MainLayout = () => {
   const dummyPerformanceData = []; // Replace with actual performance data
   const dummyDrawdownData = []; // Replace with actual drawdown data
 
+  const handleNavigation = (itemId: string, subItemId?: string) => {
+    console.log("Navigating to:", itemId, subItemId);
+    // Implement your navigation logic here
+    // Could use React Router or state management
+  };
+
   return (
     <div className="flex h-screen bg-dark">
-      <Sidebar />
+      <Sidebar onNavigate={handleNavigation} />
       <div className="flex-1 overflow-auto">
         <TradeList trades={dummyTrades} onTradeSelect={setSelectedTrade} />
         <ChartSection
