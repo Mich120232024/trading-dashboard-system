@@ -3,12 +3,15 @@ import React from "react";
 // Fix import paths
 import Sidebar from "../../components/Sidebar";
 import ChartSection from "../../components/chartsection";
-import { TradeList } from "../../components/tradelist";
+import { TradeList } from "../../components/tradelist/Index";
 
 // Add type definitions
 interface Trade {
   id: string;
-  // Add other trade properties
+  status: "SUCCESS" | "PENDING" | "FAILED";
+  type: string;
+  dateRange: { start: string; end: string };
+  completion: number;
 }
 
 interface ChartData {
