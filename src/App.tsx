@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import MainLayout from "./MainLayout.tsx";
+import MainLayout from "./components/MainLayout";
 import "./App.css";
 
 const App: React.FC = () => {

@@ -1,8 +1,8 @@
 // src/MainLayout.tsx
 import React from "react";
-import Sidebar from "./components/Sidebar/Sidebar";
-import ChartSection from "./components/ChartSection";
-import { TradeList } from "./components/TradeList";
+import Sidebar from "./Sidebar/Sidebar";
+import ChartSection from "./ChartSection";
+import { TradeList } from "./TradeList";
 
 const MainLayout = () => {
   const [selectedTrade, setSelectedTrade] = React.useState<any>(null);
