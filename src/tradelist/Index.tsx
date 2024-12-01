@@ -1,7 +1,7 @@
 // src/components/TradeList.tsx
 import React, { memo } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
-import { StatusIcon } from "./common/StatusIcon";
+import { StatusIcon } from "../components/common/StatusIcon";
 
 interface Trade {
   id: string;

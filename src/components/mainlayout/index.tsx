@@ -1,7 +1,7 @@
 // src/MainLayout.tsx
 import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
-import ChartSection from "./ChartSection";
+import ChartSection from "../ChartSection";
 import { TradeList } from "./TradeList";
 
 const MainLayout = () => {

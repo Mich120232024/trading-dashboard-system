@@ -11,7 +11,7 @@ import {
   CartesianGrid,
   Tooltip,
 } from "recharts";
-import { ChartData, ChartSectionProps } from "../types";
+import { ChartData, ChartSectionProps } from "../../types";
 
 export const ChartSection = memo(
   ({ performanceData, drawdownData }: ChartSectionProps) => {
