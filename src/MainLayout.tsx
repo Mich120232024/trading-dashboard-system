@@ -1,0 +1,27 @@
+// src/MainLayout.tsx
+import React from "react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import ChartSection from "./components/ChartSection";
+import { TradeList } from "./components/TradeList";
+
+const MainLayout = () => {
+  const [selectedTrade, setSelectedTrade] = React.useState<any>(null);
+  const dummyTrades = []; // Replace with actual trades data
+  const dummyPerformanceData = []; // Replace with actual performance data
+  const dummyDrawdownData = []; // Replace with actual drawdown data
+
+  return (
+    <div className="flex h-screen bg-dark">
+      <Sidebar />
+      <div className="flex-1 overflow-auto">
+        <TradeList trades={dummyTrades} onTradeSelect={setSelectedTrade} />
+        <ChartSection
+          performanceData={dummyPerformanceData}
+          drawdownData={dummyDrawdownData}
+        />
+      </div>
+    </div>
+  );
+};
+
+export default MainLayout;

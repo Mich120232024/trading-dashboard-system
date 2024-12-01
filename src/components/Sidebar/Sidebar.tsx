@@ -9,6 +9,7 @@ import {
   DocumentChartBarIcon,
   ArrowTrendingUpIcon,
 } from "@heroicons/react/24/solid";
+import "../../App.css"; // Update the import path
 
 interface NavItem {
   id: string;

@@ -1,8 +1,18 @@
 // src/components/TradeList.tsx
 import React, { memo } from "react";
-import { useVirtual } from "react-virtual";
-import { Trade } from "../types";
+import { useVirtualizer } from "@tanstack/react-virtual";
 import { StatusIcon } from "./common/StatusIcon";
+
+interface Trade {
+  id: string;
+  status: "SUCCESS" | "PENDING" | "FAILED";
+  type: string;
+  dateRange: {
+    start: string;
+    end: string;
+  };
+  completion: number;
+}
 
 interface TradeListProps {
   trades: Trade[];
@@ -12,10 +22,10 @@ interface TradeListProps {
 export const TradeList = memo(({ trades, onTradeSelect }: TradeListProps) => {
   const parentRef = React.useRef<HTMLDivElement>(null);
 
-  const rowVirtualizer = useVirtual({
-    size: trades.length,
-    parentRef,
-    estimateSize: React.useCallback(() => 50, []),
+  const rowVirtualizer = useVirtualizer({
+    count: trades.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => 50,
     overscan: 5,
   });
 
@@ -32,7 +42,7 @@ export const TradeList = memo(({ trades, onTradeSelect }: TradeListProps) => {
           </tr>
         </thead>
         <tbody>
-          {rowVirtualizer.virtualItems.map((virtualRow) => {
+          {rowVirtualizer.getVirtualItems().map((virtualRow) => {
             const trade = trades[virtualRow.index];
             return (
               <tr
