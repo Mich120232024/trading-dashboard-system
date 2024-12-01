@@ -2,7 +2,7 @@
 import React from "react";
 import Sidebar from "./sidebar/Index";
 import ChartSection from "../chartsection";
-import { TradeList } from "./tradeList";
+import { TradeList } from "./components/tradelist";
 
 const MainLayout = () => {
   const [selectedTrade, setSelectedTrade] = React.useState<any>(null);
