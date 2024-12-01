@@ -1,24 +1,43 @@
-// src/MainLayout.tsx
 import React from "react";
-import Sidebar from "./sidebar/Index";
-import ChartSection from "../chartsection";
-import { TradeList } from "./components/tradelist";
+
+// Fix import paths
+import Sidebar from "../../components/Sidebar";
+import ChartSection from "../../components/chartsection";
+import { TradeList } from "../../components/tradelist";
+
+// Add type definitions
+interface Trade {
+  id: string;
+  // Add other trade properties
+}
+
+interface ChartData {
+  date: string;
+  value: number;
+}
+
+interface SidebarProps {
+  onNavigate: (itemId: string, subItemId?: string) => void;
+}
+
+const LocalSidebar: React.FC<SidebarProps> = ({ onNavigate }) => {
+  return <div>{/* Sidebar implementation */}</div>;
+};
 
 const MainLayout = () => {
-  const [selectedTrade, setSelectedTrade] = React.useState<any>(null);
-  const dummyTrades = []; // Replace with actual trades data
-  const dummyPerformanceData = []; // Replace with actual performance data
-  const dummyDrawdownData = []; // Replace with actual drawdown data
+  const [selectedTrade, setSelectedTrade] = React.useState<Trade | null>(null);
+
+  const dummyTrades: Trade[] = [];
+  const dummyPerformanceData: ChartData[] = [];
+  const dummyDrawdownData: ChartData[] = [];
 
   const handleNavigation = (itemId: string, subItemId?: string) => {
     console.log("Navigating to:", itemId, subItemId);
-    // Implement your navigation logic here
-    // Could use React Router or state management
   };
 
   return (
-    <div className="flex h-screen bg-dark">
-      <Sidebar onNavigate={handleNavigation} />
+    <div className="flex h-screen bg-gray-900">
+      <LocalSidebar onNavigate={handleNavigation} />
       <div className="flex-1 overflow-auto">
         <TradeList trades={dummyTrades} onTradeSelect={setSelectedTrade} />
         <ChartSection
